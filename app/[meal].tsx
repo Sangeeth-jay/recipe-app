@@ -65,17 +65,15 @@ const Meal = () => {
   return (
     <>
       <View className="flex-1">
-        <View className="bg-orange-500 w-full h-12 p-1">
-          <Link
-            href={{
-              pathname: "/home",
-            }}
-          >
+        <View className="bg-orange-500 w-full h-12 p-1 flex-row justify-items-start items-center">
+
+          <TouchableOpacity onPress={() => router.back()}>
             <View className="flex-row gap-2 justify-center items-center">
               <Entypo name="arrow-with-circle-left" size={32} color="white" />
               <Text className="text-white text-xl font-semibold"> Home</Text>
             </View>
-          </Link>
+          </TouchableOpacity>
+
         </View>
   
         {loading ? (
@@ -143,7 +141,7 @@ const Meal = () => {
             <View className="justify-center items-center my-4">
               <TouchableOpacity
                 className="bg-orange-500 w-2/3 h-14 p-4 justify-center items-center rounded-xl"
-                onPress={() => router.push("/home")}
+                onPress={() => router.back()}
               >
                 <Text className="text-xl text-white font-bold">Done</Text>
               </TouchableOpacity>
