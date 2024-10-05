@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
   ActivityIndicator,
+  Modal
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -105,12 +106,14 @@ const Home = () => {
   const renderHeader = () => (
     <>
       <View className="p-5 flex-row justify-between">
-        <MaterialIcons name="account-circle" size={42} color="orange" />
+        <TouchableOpacity>
+          <MaterialIcons name="account-circle" size={42} color="orange" />
+        </TouchableOpacity>
         <MaterialIcons name="circle-notifications" size={42} color="orange" />
       </View>
       <View className="p-5 pt-0">
         <Text className="font-semibold text-lg">Hello, {params.uName}!</Text>
-        <Text className="font-bold text-3xl">
+        <Text className="font-bold text-2xl">
           Make your own delicious food,{" "}
           <Text className="text-orange-500">right now!</Text>
         </Text>
@@ -196,7 +199,7 @@ const Home = () => {
   );
 
   // Render random meal item
-  const renderRandomMeal = () => (
+  const renderRandomMeal = () =>
     randomMeal ? (
       <View className="mt-8">
         <TouchableOpacity onPress={() => handleMealPress(randomMeal.idMeal)}>
@@ -211,8 +214,7 @@ const Home = () => {
       </View>
     ) : (
       <Text>No random meal available.</Text>
-    )
-  );
+    );
 
   return (
     <View style={{ flex: 1 }}>
